@@ -58,6 +58,8 @@ Aşağıdaki komut ile API testini çalıştırabilirsiniz.
 ### `npm run test`
 
 * Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışmaktadır. Anasayfaya erişmek için enlem ve boylam parametreleri verilmelidir. **Örnek:** [http://localhost:3000?enlem=37&boylam=35](http://localhost:3000?enlem=37&boylam=35)
+* Mongo Cloud benzeri bir veritabanı kullanılacaksa "app_api/models/db.js" dosyasındaki dbURI değiştirilmeli.
+* Uygulama localhost yerine domain altında çalışacaksa "app_server/controllers/common/ortakkullanim.js" dosyasındaki apiSecenekleri.sunucu parametresini değiştirilmeli.
 * Swagger API Dokumantasyonuna [http://localhost:3000/apidoc](http://localhost:3000/apidoc) adresinden ulaşılabilir.
 * [Replit Demo](https://mekanbul-fullstack.asimsinanyuksel.repl.co/?enlem=37.8&boylam=30.5): Admin: Eposta:admin@admin.com Şifre:1234 
 
