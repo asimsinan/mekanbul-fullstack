@@ -29,8 +29,8 @@ Tüm koleksiyon API Koleksiyonu.json dosyasında yer almaktadır. Thunder Client
 ## Kullanılan Teknolojiler ve Araçlar
 Uygulama front-end ve back-end olmak üzere iki kısımdan oluşmaktadır. MVC mimarisine uygun bir şekilde tasarlanmıştır.
 
-* **Front-end:** PugJS, CSS
-* **Back-end:** NodeJS, Express, Javascript
+* **Front-end:** PugJS, CSS, JQuery
+* **Back-end:** NodeJS, ExpressJS, Javascript
 * **Veritabanı:** MongoDB
 * **Veri Modelleme:** Mongoose
 * **Kimlik Doğrulama, Güvenlik:** PassportJS, JWT
