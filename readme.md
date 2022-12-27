@@ -32,7 +32,7 @@ Uygulama front-end ve back-end olmak üzere iki kısımdan oluşmaktadır. MVC m
 * **Back-end:** NodeJS, Express, Javascript
 * **Veritabanı:** MongoDB
 * **Veri Modelleme:** Mongoose
-* **Kimlik Doğrulama, Güvenlik:** PassportJS,JWT
+* **Kimlik Doğrulama, Güvenlik:** PassportJS, JWT
 * **Haberleşme:** REST API, Axios
 * **Test:** Mocha,Mochawesome, Chai, Supertest
 * **IDE:** Visual Studio Code
