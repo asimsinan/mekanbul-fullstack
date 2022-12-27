@@ -73,3 +73,5 @@ Aşağıdaki komut ile API testini çalıştırabilirsiniz.
 ![image](resimler/giris.png)
 
 ![image](resimler/kayit.png)
+
+![image](resimler/api.png)
