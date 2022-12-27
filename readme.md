@@ -37,6 +37,7 @@ Uygulama front-end ve back-end olmak üzere iki kısımdan oluşmaktadır. MVC m
 * **Test:** Mocha,Mochawesome, Chai, Supertest
 * **IDE:** Visual Studio Code
 * **REST API Client:** Thunder Client
+ **REST API Dokumantasyon Aracı:** Swagger
 * **Versiyonlama:** Git
 
 ## Kütüphanelerin Yüklenmesi
