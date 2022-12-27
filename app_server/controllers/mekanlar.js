@@ -1,6 +1,5 @@
 let ortak=require("./common/ortakkullanim");
 let apiSecenekleri=ortak.apiSecenekleri;
-let sessionKontrol=ortak.sessionKontrol;
 
 let hataGoster=ortak.hataGoster;
 const axios = require("axios");

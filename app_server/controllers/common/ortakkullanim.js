@@ -68,7 +68,7 @@ hataGoster = function (req, res, hata) {
     mesaj = "Girilmesi gereken alanlardan birini boş geçtiniz!";
   }
   else
-  mesaj = "Şifre güncelleme başarız. Lütfen bilgilerinizi kontrol ediniz!";
+  mesaj = "İşlem başarısız!";
   res.render("error", {
     mesaj: mesaj,
     kullanici: kullanici,
