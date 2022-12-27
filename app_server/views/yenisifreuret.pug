@@ -1,0 +1,13 @@
+extends layout
+block content
+  .row.my-header
+    .col-lg-12
+  .row(align='center')
+   .login.col-md-6
+    form.center.form-horizontal(action="", method="post", role="form", id="yeniSifreAyarla")
+       .form-group
+          label.col-xs-10.col-sm-2.control-label(for="yenisfire") Yeni Şifre:
+          .col-xs-12.col-sm-10
+            input#yenisifre.form-control(name="yenisifre",autofocus)
+       .form-group        
+          button.btn-login.btn-default.pull-right Şifremi Ayarla

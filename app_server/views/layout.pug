@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+   meta(name='viewport', content='width=device-width, initial-scale=2.0')
+   title= baslik
+   link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+  body
+   //navbar-default ve navbar-fixed-top css sınıflarını kullan
+   .navbar-default.navbar-fixed-top
+    //taşıyıcı tanımlama
+    .container
+     .navbar-header
+      a.navbar-brand(href='/?enlem=37.8&boylam=30.5') MekanBul
+      //mobil uyumlu hamburger stili menü oluştur
+      button.navbar-toggle(type='button',data-toggle='collapse',data-target='#navbar-main')
+       span.icon-bar
+       span.icon-bar
+       span.icon-bar
+     #navbar-main.navbar-collapse.collapse
+      //hamburger menüsündeki aşağı açılır linkleri oluştur.
+      ul.nav.navbar-nav
+       li.nav-item
+        a.nav-link(href='/admin') Admin
+       li.nav-item.dropdown
+        if(session.kullanici)
+         a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown") #{session.kullanici.adsoyad}
+         .dropdown-menu(aria-labelledby="navbarDropdown")
+           a.dropdown-item(href='/profil') Görüntüle
+           .dropdown-divider
+           a.dropdown-item(href='/profilguncelle') Güncelle
+           .dropdown-divider
+           a.dropdown-item(href="/cikis") Çıkış Yap
+        else 
+         li.nav-item
+          a.nav-link(href='/giris') Giriş Yap
+       li.nav-item
+        a.nav-link(href='/hakkinda') Hakkında
+   .container
+    //içeriğin geleceği kısım
+    block content
+    footer
+        .col-12
+          //Copyright metni oluştur.
+          small &copy; Asım Sinan Yüksel 2022
+  script(src='/javascripts/jquery-3.6.1.min.js')
+  script(src='/bootstrap/js/bootstrap.min.js')
+  script(src='/javascripts/denetle.js')

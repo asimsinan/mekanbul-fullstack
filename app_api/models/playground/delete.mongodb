@@ -1,0 +1,3 @@
+const database = 'mekanbul';
+use(database);
+db.mekanlar.deleteMany({});

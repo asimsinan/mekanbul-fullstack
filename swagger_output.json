@@ -1,0 +1,517 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Mekanbul REST API",
+    "description": "Mekanbul Uygulaması İçin Swagger API Dokumantasyonu"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/kayitol": {
+      "post": {
+        "description": "Kayıt Ol",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "adsoyad": {
+                  "example": "Sinan Yüksel"
+                },
+                "eposta": {
+                  "example": "asimyuksel@sdu.edu.tr"
+                },
+                "sifre": {
+                  "example": "1234"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/girisyap": {
+      "post": {
+        "description": "Giriş yap",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "eposta": {
+                  "example": "asimyuksel@sdu.edu.tr"
+                },
+                "sifre": {
+                  "example": "1234"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/mekanlar": {
+      "get": {
+        "description": "Konuma Göre Mekanları Listele",
+        "parameters": [
+          {
+            "name": "boylam",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "enlem",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "post": {
+        "description": "Admin-Yeni Mekan Ekleme",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ad": {
+                  "example": "SDÜ Bilgisayar Mühendisliği"
+                },
+                "adres": {
+                  "example": "SDÜ Batı Kampüsü"
+                },
+                "imkanlar": {
+                  "example": "Web Teknolojileri, Yazılım Mühendisliği"
+                },
+                "enlem": {
+                  "example": "37"
+                },
+                "boylam": {
+                  "example": "35"
+                },
+                "gunler1": {
+                  "example": "Pazartesi-Cuma"
+                },
+                "acilis1": {
+                  "example": "9:00"
+                },
+                "kapanis1": {
+                  "example": "17:00"
+                },
+                "kapali1": {
+                  "example": "false"
+                },
+                "gunler2": {
+                  "example": "Cumartesi-Pazar"
+                },
+                "acilis2": {
+                  "example": "9:00"
+                },
+                "kapanis2": {
+                  "example": "17:00"
+                },
+                "kapali2": {
+                  "example": "true"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {},
+        "security": [ { "Bearer": [] } ]
+      }
+    },
+    "/admin": {
+      "get": {
+        "description": "Admin-Tüm Mekanları Listele",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {},
+        "security": [ { "Bearer": [] } ]
+      }
+    },
+    "/mekanlar/{mekanid}": {
+      "get": {
+        "description": "Belirli Bir Mekanı Getirme",
+        "parameters": [
+          {
+            "name": "mekanid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "description": "Admin-Mekan Güncelle",
+          "parameters": [
+            {
+              "name": "mekanid",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "Authorization",
+              "in": "header",
+              "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ad": {
+                    "example": "SDÜ Bilgisayar Mühendisliği"
+                  },
+                  "adres": {
+                    "example": "SDÜ Batı Kampüsü"
+                  },
+                  "imkanlar": {
+                    "example": "Web Teknolojileri, Yazılım Mühendisliği"
+                  },
+                  "enlem": {
+                    "example": "37"
+                  },
+                  "boylam": {
+                    "example": "35"
+                  },
+                  "gunler1": {
+                    "example": "Pazartesi-Cuma"
+                  },
+                  "acilis1": {
+                    "example": "9:00"
+                  },
+                  "kapanis1": {
+                    "example": "17:00"
+                  },
+                  "kapali1": {
+                    "example": "false"
+                  },
+                  "gunler2": {
+                    "example": "Cumartesi-Pazar"
+                  },
+                  "acilis2": {
+                    "example": "9:00"
+                  },
+                  "kapanis2": {
+                    "example": "17:00"
+                  },
+                  "kapali2": {
+                    "example": "true"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {},
+          "security": [ { "Bearer": [] } ]
+      },
+      "delete": {
+        "description": "Admin-Mekan Silme",
+        "parameters": [
+          {
+            "name": "mekanid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {},
+        "security": [ { "Bearer": [] } ]
+      }
+    },
+    "/mekanlar/{mekanid}/yorumlar": {
+      "post": {
+        "description": "Kayıtlı Kullanıcı-Yorum Ekle",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mekanid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "puan": {
+                  "example": "1"
+                },
+                "yorumMetni": {
+                  "example": "Harika bir mekan!"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [ { "Bearer": [] } ]
+      }
+    },
+    "/mekanlar/{mekanid}/yorumlar/{yorumid}": {
+      "get": {
+        "description": "Belirli Bir Yorumu Getirme",
+        "parameters": [
+          {
+            "name": "mekanid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "yorumid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "description": "Kayıtlı Kullanıcı-Yorum Güncelleme",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mekanid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "yorumid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "puan": {
+                  "example": "1"
+                },
+                "yorumMetni": {
+                  "example": "Harika bir mekan!"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {},
+        "security": [ { "Bearer": [] } ]
+      },
+      "delete": {
+        "description": "Kayıtlı Kullanıcı-Yorum Sil",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mekanid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "yorumid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {},
+        "security": [ { "Bearer": [] } ]
+      }
+    },
+    "/profil": {
+      "get": {
+        "description": "Kayıtlı Kullanıcı-Profil Görüntüleme",
+        "parameters": [ {
+          "name": "Authorization",
+          "in": "header",
+          "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [ { "Bearer": [] } ]
+      }
+    },
+    "/profilguncelle": {
+      "put": {
+        "description": "Kayıtlı Kullanıcı-Profil Güncelleme",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Örnek: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "adsoyad": {
+                  "example": "Sinan"
+                },
+                "eposta": {
+                  "example": "asimyuksel@sdu.edu.tr"
+                },
+                "sifre": {
+                  "example": "1234"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [ { "Bearer": [] } ]
+      }
+    },
+    "/sifreyenile": {
+      "put": {
+        "description": "Kayıtlı Kullanıcı-Şifre Yenileme",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhOTk0ZmM1OGUzYmVhNTZjY2JiNzYiLCJlcG9zdGEiOiJhbnkiLCJhZHNveWFkIjoiYW55Iiwicm9sIjoiYWRtaW4iLCJleHAiOjE2NzI3MzA3MzAsImlhdCI6MTY3MjEyNTkzMH0.3RZ-9tFXTYR5miOoQvevXpgjvnhzJ9frS-h5R_uAxLA"
+                },
+                "yenisifre": {
+                  "example": "1234"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "402": {
+            "description": "Payment Required"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  }
+}

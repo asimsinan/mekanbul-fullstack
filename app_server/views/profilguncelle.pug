@@ -1,0 +1,23 @@
+extends layout
+block content
+  .row.my-header
+    .col-lg-12
+  .row(align='center')
+   .login.col-md-6
+    form.center.form-horizontal(action="", method="post", role="form", id="profilGuncelle")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="eposta") E-Posta
+          .col-xs-12.col-sm-10
+            input#eposta.form-control(name="eposta", value= session.kullanici.eposta)
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="adsoyad") Ad Soyad
+          .col-xs-12.col-sm-10
+            input#adsoyad.form-control(name="adsoyad", value=session.kullanici.adsoyad)
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="sifre") Şifre
+          .col-xs-12.col-sm-10
+            input#sifre.form-control(name="sifre")    
+        .form-group        
+          button.btn-login.btn-default.pull-right Güncelle
+
+    

@@ -1,0 +1,26 @@
+extends layout
+block content
+  .row.my-header
+    .col-lg-12
+  .row(align='center')
+   .login.col-md-6
+    form.center.form-horizontal(action="", method="post", role="form", id="kayitOl")
+        -if(hata == 'bos')
+          .alert.alert-danger(role="alert") Tüm alanlar zorunludur!
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="adsoyad") Ad Soyad
+          .col-xs-12.col-sm-10
+           input#adsoyad.form-control(name="adsoyad",autofocus)
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="eposta") E-Posta
+          .col-xs-12.col-sm-10
+            input#eposta.form-control(name="eposta")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="sifre") Şifre
+          .col-xs-12.col-sm-10
+            input#sifre.form-control(name="sifre")    
+        .form-group        
+          button.btn-login.btn-default.pull-right Kayıt Ol
+    .col-xs-12.col-md-4
+
+    

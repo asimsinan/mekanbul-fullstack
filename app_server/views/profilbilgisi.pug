@@ -1,0 +1,25 @@
+extends layout
+block content
+  #banner.page-header
+    .row
+      .col-lg-6
+        h1 Kullanıcı Bilgileri
+  .row
+    //mobil uyumlu listeleme
+    .col-xs-12.col-sm-12
+     p 
+      strong
+       |ID:
+      |&nbsp;#{kullanici.id}
+     p
+      strong
+       |Ad Soyad:
+      |&nbsp;#{kullanici.adsoyad}
+     p 
+      strong
+       |E-Posta:
+      |&nbsp;#{kullanici.eposta}
+     p 
+      strong
+       |Kullanıcı Rolü:
+      |&nbsp;#{kullanici.rol}
