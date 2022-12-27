@@ -5,7 +5,7 @@
     "title": "Mekanbul REST API",
     "description": "Mekanbul Uygulaması İçin Swagger API Dokumantasyonu"
   },
-  "host": "localhost:3000",
+  "host": "https://mekanbul-fullstack.asimsinanyuksel.repl.co",
   "basePath": "/api",
   "schemes": [
     "http"
