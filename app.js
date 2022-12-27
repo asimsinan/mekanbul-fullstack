@@ -18,7 +18,7 @@ var apiRouter = require("./app_api/routes/index");
 app.use(
   session({
     secret: "gizli",
-    cookie: { maxAge: 1000 * 60 * 1 },
+    cookie: { maxAge: 1000 * 60 * 5 },
     resave: true,
     saveUninitialized: true,
   })

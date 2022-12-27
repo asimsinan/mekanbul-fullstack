@@ -45,7 +45,7 @@ skt.setDate(skt.getDate() + 7);
       adsoyad: this.adsoyad,
       cinsiyet:this.cinsiyet,
       rol:this.rol,
-	    exp: parseInt(skt.getTime() / 10000, 10)
+	    exp: parseInt(skt.getTime() / 1000, 10)
     },
     process.env.JWT_SECRET
   );
