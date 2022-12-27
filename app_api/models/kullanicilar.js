@@ -11,6 +11,10 @@ const kullaniciSema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cinsiyet: {
+    type: String,
+    required: true,
+  },
   rol: {
     type: String,
     default:"kullanici"
@@ -39,6 +43,7 @@ skt.setDate(skt.getDate() + 7);
       _id: this._id,
       eposta: this.eposta,
       adsoyad: this.adsoyad,
+      cinsiyet:this.cinsiyet,
       rol:this.rol,
 	    exp: parseInt(skt.getTime() / 1000, 10)
     },

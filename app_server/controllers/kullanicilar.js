@@ -102,6 +102,7 @@ const profilGuncelleButton = function (req, res) {
   if (kullanici) {
     gonderilenKullanici = {
       adsoyad: req.body.adsoyad,
+      cinsiyet:req.body.cinsiyet,
       eposta: req.body.eposta,
       sifre: req.body.sifre,
     };
@@ -137,6 +138,7 @@ const kayitOlButton = function (req, res) {
   } else {
     let gonderilenKullanici = {
       adsoyad: req.body.adsoyad,
+      cinsiyet:req.body.cinsiyet,
       eposta: req.body.eposta,
       sifre: req.body.sifre,
     };

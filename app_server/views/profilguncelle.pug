@@ -14,6 +14,12 @@ block content
           .col-xs-12.col-sm-10
             input#adsoyad.form-control(name="adsoyad", value=session.kullanici.adsoyad)
         .form-group
+          label.col-xs-10.col-sm-2.control-label(for='cinsiyet') Cinsiyet
+          .col-xs-12.col-sm-2
+            select#cinsiyet.form-control.input-sm(name='cinsiyet')
+              option Erkek
+              option Kadın       
+        .form-group
           label.col-xs-10.col-sm-2.control-label(for="sifre") Şifre
           .col-xs-12.col-sm-10
             input#sifre.form-control(name="sifre")    

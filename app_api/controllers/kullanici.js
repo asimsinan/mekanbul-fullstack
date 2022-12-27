@@ -9,6 +9,7 @@ const kayitOl = (req, res) => {
   const kullanici = new Kullanici();
   kullanici.adsoyad = req.body.adsoyad;
   kullanici.eposta = req.body.eposta;
+  kullanici.cinsiyet=req.body.cinsiyet;
   kullanici.sifreAyarla(req.body.sifre);
   kullanici.save((hata) => {
     if (hata) {
@@ -36,6 +37,7 @@ const sifreYenile = async (req, res) => {
           guncelKullanici = {
             adsoyad: sonuc.adsoyad,
             eposta: sonuc.eposta,
+            cinsiyet:sonuc.cinsiyet,
             id: sonuc._id,
             token: token,
           };
@@ -65,7 +67,7 @@ const girisYap = (req, res) => {
       token = kullanici.tokenUret();
       res
         .status(200)
-        .json({ adsoyad: kullanici.adsoyad, eposta:kullanici.eposta, rol: kullanici.rol, token: token });
+        .json({ adsoyad: kullanici.adsoyad, cinsiyet:kullanici.cinsiyet,eposta:kullanici.eposta, rol: kullanici.rol, token: token });
     } else {
       return res.status(401).json(info);
     }
@@ -77,24 +79,27 @@ const profilGoruntule = (req, res) => {
     id: req.auth._id,
     eposta: req.auth.eposta,
     adsoyad: req.auth.adsoyad,
+    cinsiyet:req.auth.cinsiyet,
     rol:req.auth.rol
   });
 };
 
 const profilGuncelle = async(req, res) => {
-  if (!req.body.adsoyad || !req.body.eposta || !req.body.sifre) {
+  if (!req.body.adsoyad || !req.body.eposta || !req.body.sifre|| !req.body.cinsiyet) {
     return res.status(400).json({ mesaj: "Tüm alanlar gerekli" });
   }
   let kullanici = await Kullanici.findOne({ eposta: req.auth.eposta }).exec();
   if(kullanici){
   kullanici.adsoyad = req.body.adsoyad
   kullanici.eposta = req.body.eposta;
+  kullanici.cinsiyet=req.body.cinsiyet;
   kullanici.sifreAyarla(req.body.sifre);
   let token = kullanici.tokenUret();
   kullanici.save((hata, sonuc) => {
     guncelKullanici = {
       adsoyad: sonuc.adsoyad,
       eposta: sonuc.eposta,
+      cinsiyet:sonuc.cinsiyet,
       id: sonuc._id,
       token:token
     };

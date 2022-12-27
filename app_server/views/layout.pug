@@ -26,8 +26,10 @@ html
       ul.nav.navbar-nav.pull-right
        li.nav-item.dropdown
         if(session.kullanici)
-         a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown") #{session.kullanici.adsoyad}
-          img(src='/images/kullanici.png')
+         a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown")
+          -var cinsiyet=session.kullanici.cinsiyet
+          img(src='/images/'+cinsiyet+'.png')
+          span &nbsp;#{session.kullanici.adsoyad}
          .dropdown-menu(aria-labelledby="navbarDropdown")
            a.dropdown-item(href='/profil') Görüntüle
            .dropdown-divider
