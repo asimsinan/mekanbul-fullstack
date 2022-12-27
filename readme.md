@@ -60,3 +60,12 @@ Aşağıdaki komut ile API testini çalıştırabilirsiniz.
 * Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışmaktadır. Anasayfaya erişmek için enlem ve boylam parametreleri verilmelidir. **Örnek:** [http://localhost:3000?enlem=37&boylam=35](http://localhost:3000?enlem=37&boylam=35)
 * Swagger API Dokumantasyonuna [http://localhost:3000/apidoc](http://localhost:3000/apidoc) adresinden ulaşılabilir.
 * [Replit Demo](https://mekanbul-fullstack.asimsinanyuksel.repl.co/?enlem=37.8&boylam=30.5): Admin: Eposta:admin@admin.com Şifre:1234 
+
+# Ekran Görüntüleri
+![image](resimler/anasayfa.png)
+
+![image](resimler/admin.png)
+
+![image](resimler/detay.png)
+
+![image](resimler/yorum.png)
