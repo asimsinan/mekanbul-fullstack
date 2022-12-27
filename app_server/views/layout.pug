@@ -21,9 +21,13 @@ html
       ul.nav.navbar-nav
        li.nav-item
         a.nav-link(href='/admin') Admin
+       li.nav-item
+        a.nav-link(href='/hakkinda') Hakkında
+      ul.nav.navbar-nav.pull-right
        li.nav-item.dropdown
         if(session.kullanici)
          a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown") #{session.kullanici.adsoyad}
+          img(src='/images/kullanici.png')
          .dropdown-menu(aria-labelledby="navbarDropdown")
            a.dropdown-item(href='/profil') Görüntüle
            .dropdown-divider
@@ -33,8 +37,6 @@ html
         else 
          li.nav-item
           a.nav-link(href='/giris') Giriş Yap
-       li.nav-item
-        a.nav-link(href='/hakkinda') Hakkında
    .container
     //içeriğin geleceği kısım
     block content

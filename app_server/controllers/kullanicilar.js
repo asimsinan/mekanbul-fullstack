@@ -114,6 +114,7 @@ const profilGuncelleButton = function (req, res) {
         setToken(kullanici.token)
       )
       .then(function () {
+        req.session.destroy();
         res.redirect("/giris");
       });
   } else res.redirect("/giris");
@@ -129,7 +130,7 @@ const kayitYapSayfasiOlustur = function (req, res) {
     baslik: "Kayıt Sayfası",
   });
 };
-
+//TODO: eposta var mı kontrolü
 const kayitOlButton = function (req, res) {
   if (!req.body.eposta || !req.body.sifre || !req.body.adsoyad) {
     hataGoster(req, res, { status: 400 });
