@@ -49,6 +49,8 @@ Uygulama front-end ve back-end olmak üzere iki kısımdan oluşmaktadır. MVC m
 ## Uygulamanın Çalıştırılması
 Aşağıdaki komut ile uygulamayı çalıştırabilirsiniz. 
 
+### `npm start`
+
 ## REST API Testi
 Aşağıdaki komut ile API testini çalıştırabilirsiniz. 
 
