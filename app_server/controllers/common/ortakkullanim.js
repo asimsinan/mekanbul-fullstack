@@ -3,7 +3,8 @@ const nodemailer = require("nodemailer");
 var mongoose = require("mongoose");
 const Kullanici = mongoose.model("kullanici");
 const apiSecenekleri = {
-  sunucu: "http://localhost:3000",
+  sunucu: "https://mekanbul-fullstack.asimsinanyuksel.repl.co",
+  sunucuLocal:"http://localhost:3000",
   apiYolu: "/api",
   mekanYolu: "/mekanlar/",
   girisYolu: "/girisyap",
@@ -44,7 +45,7 @@ async function epostaGonder(eposta,res) {
       to: eposta,
       subject: "Şifre Yenileme",
       text: "Şifrenizi yenilemek için aşağıdaki linke tıklayınız.",
-      html: "<h2>Şifrenizi yenilemek için aşağıdaki linke tıklayınız.</h2><p><a href='http://localhost:3000/yenisifreuret/"+token+"'"+ " target='_blank'>Şifre Sıfırlama Linki</a></p>",
+      html: "<h2>Şifrenizi yenilemek için aşağıdaki linke tıklayınız.</h2><p><a href='"+apiSecenekleri.sunucu+"/yenisifreuret/"+token+"'"+ " target='_blank'>Şifre Sıfırlama Linki</a></p>",
     },
     function (hata, info) {
       if (hata) {
