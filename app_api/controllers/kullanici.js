@@ -2,11 +2,13 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const Kullanici = mongoose.model("kullanici");
 
-const kayitOl = (req, res) => {
+const kayitOl = async (req, res) => {
   if (!req.body.adsoyad || !req.body.eposta || !req.body.sifre) {
     return res.status(400).json({ mesaj: "Tüm alanlar gerekli" });
   }
-  const kullanici = new Kullanici();
+  let kullanici = await Kullanici.findOne({ eposta: req.body.eposta}).exec();
+  if(!kullanici){
+  kullanici = new Kullanici();
   kullanici.adsoyad = req.body.adsoyad;
   kullanici.eposta = req.body.eposta;
   kullanici.cinsiyet=req.body.cinsiyet;
@@ -19,6 +21,10 @@ const kayitOl = (req, res) => {
       res.status(200).json({ token });
     }
   });
+}
+else{
+  res.status(402).json({"status":402});
+}
 };
 
 const sifreYenile = async (req, res) => {

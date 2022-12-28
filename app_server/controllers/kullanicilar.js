@@ -131,7 +131,6 @@ const kayitYapSayfasiOlustur = function (req, res) {
     baslik: "Kayıt Sayfası",
   });
 };
-//TODO: eposta var mı kontrolü
 const kayitOlButton = function (req, res) {
   if (!req.body.eposta || !req.body.sifre || !req.body.adsoyad) {
     hataGoster(req, res, { status: 400 });
@@ -151,6 +150,8 @@ const kayitOlButton = function (req, res) {
       )
       .then(function () {
         res.redirect("/giris");
+      }).catch(function(response){
+          hataGoster(req,res,response)
       });
   }
 };

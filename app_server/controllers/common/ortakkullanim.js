@@ -3,8 +3,8 @@ const nodemailer = require("nodemailer");
 var mongoose = require("mongoose");
 const Kullanici = mongoose.model("kullanici");
 const apiSecenekleri = {
-  sunucu: "https://mekanbul-fullstack.asimsinanyuksel.repl.co",
-  sunucuLocal:"http://localhost:3000",
+  sunucuReplit: "https://mekanbul-fullstack.asimsinanyuksel.repl.co",
+  sunucu:"http://localhost:3000",
   apiYolu: "/api",
   mekanYolu: "/mekanlar/",
   girisYolu: "/girisyap",
@@ -64,7 +64,10 @@ hataGoster = function (req, res, hata) {
     mesaj = "Sayfa bulunamadı!";
   } else if (cevap.status == 401) {
     mesaj = "Bu sayfaya erişmek için yetkiniz yok!";
-  } else if (cevap.status == 400) {
+  }else if (cevap.status == 402) {
+    mesaj = "Bu kullanıcı mevcut!";
+  } 
+  else if (cevap.status == 400) {
     mesaj = "Girilmesi gereken alanlardan birini boş geçtiniz!";
   }
   else
