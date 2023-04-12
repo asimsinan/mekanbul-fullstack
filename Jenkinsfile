@@ -1,9 +1,12 @@
 pipeline {
   agent any
+    tools {
+    nodejs 'NodeJS'
+  }
   stages {
     stage('Build') {
       steps {
-        echo 'Bağımlılıklar yükleniyy...'
+        echo 'Bağımlılıklar yükleniyor...'
         sh 'npm install'
         echo 'Bağımlılıklar yüklendi!'
         echo 'Audit yapılıyor..'
@@ -16,7 +19,7 @@ pipeline {
       steps {
         echo 'Test yapılıyor'
         sh 'npm run test'
-        sh 'npm run test'
+       echo 'Testler başarılı.'
       }
     }
 
@@ -27,7 +30,5 @@ pipeline {
     }
 
   }
-  tools {
-    nodejs 'NodeJS'
-  }
+
 }
