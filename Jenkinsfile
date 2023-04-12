@@ -16,7 +16,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test yapılıyor..'
+                echo 'Test yapılıyor'
+                sh 'ls '
             }
         }
         stage('Deploy') {
