@@ -23,7 +23,13 @@ pipeline {
         stage('Deploy') {
             steps {
 sh 'set -x'
-sh 'npm start &'
+sh 'npm run build'
+sh 'set +x'
+sh 'set -x'
+sh 'npm install serve'
+sh 'set +x'
+sh 'set -x'
+sh './node_modules/serve/build/main.js -s build -l 3000 &'
 sh 'set +x'
             }
         }
