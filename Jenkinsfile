@@ -15,8 +15,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test yapılıyor'
-        sh '''npm start&
-npm run test'''
+        sh 'npm run test'
         sh 'npm run test'
       }
     }
