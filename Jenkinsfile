@@ -7,7 +7,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Bağımlılıklar yükleniyor..'
-                sh 'node --version'
+                sh 'npm install'
+                echo 'audit yapılıyor..'
+                sh 'npm audit fix --force'
             }
         }
         stage('Test') {
