@@ -1,4 +1,4 @@
-# Mekanbul Uygulaması
+# Mekanbul Full Stack Uygulaması
 Mekanbul insanların konumları civarındaki mekanları, sunduğu imkanları görmelerini, mekanlara yorum yapabilmelerini sağlayan bir web uygulamadır. Uygulamanın aynı zamanda bir admin paneli mevcuttur. Admin mekan ekleme, silme, güncelleme, tüm mekanları görme gibi işlemleri yapabilmektedir.
 
 # Uygulama Özellikleri
