@@ -6,8 +6,8 @@ function girisYap(kullanici) {
     request
       .post("/api/girisyap")
       .send({
-        eposta: "a",
-        sifre: "1",
+        eposta: "b",
+        sifre: "b",
       })
       .expect(200)
       .end(onResponse);

@@ -17,12 +17,14 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test yapılıyor'
+                sh 'npm start&'
+                sh 'npm run test'
+
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Dağıtılıyor...'
-                sh 'npm start'
             }
         }
     }
