@@ -4,17 +4,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Bağımlılıklar yükleniyor..'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                echo 'Test ediliyor..'
+                echo 'Test yapılıyor..'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy..'
+                echo 'Dağıtılıyor..'
             }
         }
     }
