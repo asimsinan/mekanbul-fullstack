@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Bağımlılıklar yükleniyor..'
-                sh 'npm install'
+                sh 'node --version'
             }
         }
         stage('Test') {
