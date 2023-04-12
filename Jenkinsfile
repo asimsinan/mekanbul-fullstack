@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Dağıtılıyor...'
-                sh 'npm start'
+                sh 'npm run start&'
             }
         }
     }
