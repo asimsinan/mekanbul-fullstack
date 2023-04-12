@@ -1,7 +1,6 @@
 const expect = require("chai").expect;
 var adres = "localhost:3000";
 const request = require("supertest").agent(adres);
-
 function girisYap(kullanici) {
   return function (done) {
     request
