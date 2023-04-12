@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Dağıtılıyor..'
+                echo 'Dağıtılıyor...'
                 sh 'nohup npm start &'
             }
         }
