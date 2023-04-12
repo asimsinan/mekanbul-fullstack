@@ -32,9 +32,7 @@ echo 'of the previously run process (i.e. "npm start") and writes this value to'
 echo 'the file ".pidfile".'
 sh 'set -x'
 sh 'npm start &'
-echo $! > .pidfile
 sh 'set +x'
-
 echo 'Now...'
 echo 'Visit http://localhost:3000 to see your Node.js/React application in action.'
 echo '(This is why you specified the "args ''-p 3000:3000''" parameter when you'
