@@ -8,8 +8,10 @@ pipeline {
             steps {
                 echo 'Bağımlılıklar yükleniyor..'
                 sh 'npm install'
-                echo 'audit yapılıyor..'
+                echo 'Bağımlılıklar yüklendi!'
+                echo 'Audit yapılıyor..'
                 sh 'npm audit fix --force'
+                echo 'Audit yapıldı!'
             }
         }
         stage('Test') {
@@ -20,6 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Dağıtılıyor..'
+                sh 'npm start &'
             }
         }
     }
