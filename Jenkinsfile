@@ -17,7 +17,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test yapılıyor'
-                sh 'ls '
             }
         }
         stage('Deploy') {
