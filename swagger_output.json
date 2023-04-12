@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Mekanbul REST API",
-    "description": "Mekanbul Uygulaması İçin Swagger API Dokumantasyonu"
+    "description": "Mekanbul Uygulaması İçin Swagger API Dokümantasyonu"
   },
   "host": "mekanbul-fullstack.asimsinanyuksel.repl.co",
   "basePath": "/api",
