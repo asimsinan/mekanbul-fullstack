@@ -2,3 +2,4 @@
 node_modules
 .scannerwork/.sonar_lock
 .gitignore
+package-lock.json
