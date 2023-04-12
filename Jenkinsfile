@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Dağıtılıyor...'
-                sh 'nohup npm start &'
+                sh 'forever start app.js'
             }
         }
     }
