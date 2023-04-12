@@ -23,9 +23,6 @@ pipeline {
         stage('Deploy') {
             steps {
 sh 'set -x'
-sh 'npm run build'
-sh 'set +x'
-sh 'set -x'
 sh 'npm install serve'
 sh 'set +x'
 sh 'set -x'
