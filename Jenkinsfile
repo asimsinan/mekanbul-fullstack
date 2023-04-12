@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Bağımlılıklar yükleniyor..'
+                echo 'Bağımlılıklar yükleniyor...'
                 sh 'npm install'
                 echo 'Bağımlılıklar yüklendi!'
                 echo 'Audit yapılıyor..'
