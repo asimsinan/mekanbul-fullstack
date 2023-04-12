@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Dağıtılıyor...'
-                sh 'forever start app.js'
+                sh 'npm start'
             }
         }
     }
