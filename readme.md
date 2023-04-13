@@ -5,6 +5,7 @@ Mekanbul insanların konumları civarındaki mekanları, sunduğu imkanları gö
 * **Kayıtlı Kullanıcı:** Mekana yorum yapabilme, profil görüntüleme, profil güncelleme, şifre yenileme
 * **Admin:** Tüm mekanları listeleme, mekan ekleme, mekan silme, mekan güncelleme
 * **Varsayılan Rol:** Kullanıcı. Kullanıcılar koleksiyonuna giderek kayıt olduğunuz kullanıcıyı bulup rolünü "admin olarak değiştirerek admin özelliklerine erişebilirsiniz.
+
 # API Metotları
 Tüm koleksiyon API Koleksiyonu.json dosyasında yer almaktadır. Thunder Client aracılığı ile import edilebilir. 
 * **Mekan Ekleme:** POST "/api/mekanlar". Mekan bilgileri girilmeli. Mekan Bilgileri: ad,adres, imkanlar, enlem, boylam, gunler1, acilis1, kapanis1, kapali1, gunler2, acilis2, kapanis2, kapali2.
