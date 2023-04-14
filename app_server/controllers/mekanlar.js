@@ -50,9 +50,8 @@ const anaSayfaOlustur = function (req, res, mekanListesi) {
     //Eğer belirlenen mesafe içinde mekan bulunamadıysa bilgilendir
     if (!mekanListesi.length) {
       mesaj = "Civarda Herhangi Bir Mekan Bulunamadı!";
-    }
-  }
-  res.render("anasayfa", {
+    }else
+      res.render("anasayfa", {
     baslik: "Anasayfa",
     sayfaBaslik: {
       siteAd: "MekanBul",
@@ -60,6 +59,8 @@ const anaSayfaOlustur = function (req, res, mekanListesi) {
     },
     mekanlar: mekanListesi
   });
+  }
+  
 };
 const mekanBilgisi = function (req, res) {
   axios
