@@ -3,8 +3,12 @@ pipeline {
     tools {
     nodejs 'nodejs'
   }
+      environment {
+        mekanid="0"
+        yorumid="0"
+    }
   stages {
-    stage('Build') {
+    stage('Build Mekanbul') {
       steps {
         echo 'Bağımlılıklar yükleniyor...'
         sh 'npm install'
@@ -14,8 +18,7 @@ pipeline {
         echo 'Audit yapıldı!'
       }
     }
-
-    stage('Test') {
+    stage('Test Mekanbul') {
       steps {
         echo 'Test yapılıyor'
         sh 'npm run test'
@@ -23,7 +26,7 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
+    stage('Deploy Mekanbul') {
       steps {
         echo 'Dağıtılıyor...'
       }
