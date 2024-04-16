@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 var mongoose = require("mongoose");
 const Kullanici = mongoose.model("kullanici");
 const apiSecenekleri = {
-  sunucu:"https://mekanbul-fullstack.asimsinanyuksel.repl.co",
+  sunucu:"http://localhost:3000",
   apiYolu: "/api",
   mekanYolu: "/mekanlar/",
   girisYolu: "/girisyap",
