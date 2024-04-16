@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "stop": "node server.stop.js",
     "test": "mocha  test --timeout 10000 --reporter mochawesome --exit",
     "swagger": "node swagger.js"
   },
