@@ -15,7 +15,7 @@ pipeline {
         echo 'Bağımlılıklar yüklendi!'
       }
     }
-    stage('Build') {
+    stage('Start Mekanbul') {
             steps {
                 sh 'npm start'
             }
