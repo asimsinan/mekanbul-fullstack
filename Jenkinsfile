@@ -15,6 +15,11 @@ pipeline {
         echo 'Bağımlılıklar yüklendi!'
       }
     }
+    stage('Build') {
+            steps {
+                sh 'npm start'
+            }
+        }
     stage('Test Mekanbul') {
       steps {
         echo 'Test yapılıyor'
