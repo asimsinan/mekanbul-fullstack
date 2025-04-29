@@ -85,7 +85,6 @@ const yorumEkle = (req, res) => {
     } else {
       res.status(404).json({ hata: "Mekan bulunamadı" });
     }
-  );
 };
 
 const yorumGetir = function (req, res) {
