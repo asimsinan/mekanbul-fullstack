@@ -132,7 +132,6 @@ const yorumGetir = function (req, res) {
 };
 
 const yorumGuncelle = (req, res) => {
-  kullaniciGetir(req, res, (req, res, kullaniciAdi) => {
     if (!req.params.mekanid || !req.params.yorumid) {
       cevapOlustur(res, 404, {
         mesaj: "Bulunamadı. mekanid ve yorumid zorunlu.",
@@ -155,7 +154,7 @@ const yorumGuncelle = (req, res) => {
           if (!yorum) {
             cevapOlustur(res, 404, { mesaj: "yorumid bulunamadı." });
           } else {
-            yorum.yorumYapan = kullaniciAdi;
+            yorum.yorumYapan = req.body.yorumYapan;
             yorum.puan = req.body.puan;
             yorum.yorumMetni = req.body.yorumMetni;
             gelenMekan.save(function (hata, mekan) {
@@ -173,7 +172,6 @@ const yorumGuncelle = (req, res) => {
           });
         }
       });
-  });
 };
 
 const yorumSil = function (req, res) {
