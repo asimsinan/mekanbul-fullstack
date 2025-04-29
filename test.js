@@ -79,6 +79,7 @@ describe("POST /api/mekanlar/:mekanid/yorumlar", function () {
         yorumMetni: "Kahveler harika",
       });
     yorumid = response.body._id;
+    console.log("Yorum ID:", response.body);
     expect(response.status).to.eql(201);
   });
 });
