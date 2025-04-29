@@ -3,7 +3,8 @@ var adres = "localhost:3000";
 const app = require('./app')
 server = app.listen()
 const request = require("supertest").agent(server)
-
+let mekanid = null;
+let yorumid = null;
 describe("POST /api/mekanlar", function () {
   it("Yeni mekan ekle:", async function () {
     const response = await request
@@ -25,7 +26,7 @@ describe("POST /api/mekanlar", function () {
         kapali2: false,
       });
     expect(response.status).to.eql(201);
-    process.env.mekanid = response.body._id;
+    mekanid = response.body._id;
   });
 });
 
@@ -38,7 +39,7 @@ describe("GET /api/mekanlar", function () {
 
 describe("GET /api/mekanlar/:mekanid", function () {
   it("Mekan getir:", async function () {
-    const response = await request.get(`/api/mekanlar/${process.env.mekanid}`);
+    const response = await request.get(`/api/mekanlar/${mekanid}`);
     expect(response.status).to.eql(200);
   });
 });
@@ -46,7 +47,7 @@ describe("GET /api/mekanlar/:mekanid", function () {
 describe("PUT /api/mekanlar/:mekanid", function () {
   it("Mekan Güncelle:", async function () {
     const response = await request
-      .put(`/api/mekanlar/${process.env.mekanid}`)
+      .put(`/api/mekanlar/${mekanid}`)
       .send({
         ad: "Starbucks SDÜ",
         adres: "SDÜ Doğu Kampüsü",
@@ -70,13 +71,13 @@ describe("PUT /api/mekanlar/:mekanid", function () {
 describe("POST /api/mekanlar/:mekanid/yorumlar", function () {
   it("Yorum ekle:", async function () {
     const response = await request
-      .post(`/api/mekanlar/${process.env.mekanid}/yorumlar`)
+      .post(`/api/mekanlar/${mekanid}/yorumlar`)
       .send({
         yorumYapan: "ASY",
         puan: 5,
         yorumMetni: "Kahveler harika",
       });
-    process.env.yorumid = response.body._id;
+    yorumid = response.body._id;
     expect(response.status).to.eql(201);
   });
 });
@@ -84,7 +85,7 @@ describe("POST /api/mekanlar/:mekanid/yorumlar", function () {
 describe("GET /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
   it("Yorum getir:", async function () {
     const response = await request.get(
-      `/api/mekanlar/${process.env.mekanid}/yorumlar/${process.env.yorumid}`
+      `/api/mekanlar/${mekanid}/yorumlar/${yorumid}`
     );
     expect(response.status).to.eql(200);
   });
@@ -94,7 +95,7 @@ describe("PUT /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
   it("Yorum güncelle:", async function () {
     const response = await request
       .put(
-        `/api/mekanlar/${process.env.mekanid}/yorumlar/${process.env.yorumid}`
+        `/api/mekanlar/${mekanid}/yorumlar/${yorumid}`
       )
       .send({
         yorumYapan: "Sinan",
@@ -109,7 +110,7 @@ describe("DELETE /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
   it("Yorum sil:", async function () {
     const response = await request
       .delete(
-        `/api/mekanlar/${process.env.mekanid}/yorumlar/${process.env.yorumid}`
+        `/api/mekanlar/${mekanid}/yorumlar/${yorumid}`
       );
     expect(response.status).to.eql(200);
   });
@@ -118,7 +119,7 @@ describe("DELETE /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
 describe("DELETE /api/mekanlar/:mekanid", function () {
   it("Mekan sil:", async function () {
     const response = await request
-      .delete(`/api/mekanlar/${process.env.mekanid}`);
+      .delete(`/api/mekanlar/${mekanid}`);
     expect(response.status).to.eql(200);
   });
 });
