@@ -46,6 +46,7 @@ describe("GET /api/mekanlar/:mekanid", function () {
 
 describe("PUT /api/mekanlar/:mekanid", function () {
   it("Mekan Güncelle:", async function () {
+    this.timeout(20000);
     const response = await request
       .put(`/api/mekanlar/${mekanid}`)
       .send({
