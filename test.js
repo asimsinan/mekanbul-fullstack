@@ -3,25 +3,6 @@ var adres = "localhost:3000";
 const app = require('./app')
 server = app.listen()
 const request = require("supertest").agent(server)
-function girisYap(kullanici) {
-  return function (done) {
-    request
-      .post("/api/girisyap")
-      .send({
-        eposta: "a",
-        sifre: "a",
-      })
-      .expect(200)
-      .end(onResponse);
-
-    function onResponse(err, res) {
-      kullanici.token = res.body.token;
-      return done();
-    }
-  };
-}
-var kullanici = {};
-before(girisYap(kullanici));
 
 describe("POST /api/mekanlar", function () {
   it("Yeni mekan ekle:", async function () {
