@@ -58,7 +58,7 @@ const mekanlariListele = async (req, res) => {
   }
 };
 const tumMekanlariListele = function (req, res) {
-  if (req.auth.rol === "admin") {
+
     Mekan.find({}, "ad adres puan imkanlar _id", function (hata, sonuclar) {
       //dönen sonuçları tutacağımız diziyi tanımla
       var mekanlar = [];
@@ -79,9 +79,7 @@ const tumMekanlariListele = function (req, res) {
         cevapOlustur(res, 200, mekanlar);
       }
     });
-  } else {
-    cevapOlustur(res, 404, { hata: "Bu API'yi kullanmaya yetkiniz yok!" });
-  }
+ 
 };
 
 const mekanEkle = function (req, res) {
@@ -132,7 +130,6 @@ const mekanGetir = function (req, res) {
   }
 };
 const mekanGuncelle = function (req, res) {
-  if (req.auth.rol === "admin") {
     if (!req.params.mekanid) {
       cevapOlustur(res, 404, { mesaj: "Bulunamadı. mekanid gerekli" });
       return;
@@ -176,10 +173,8 @@ const mekanGuncelle = function (req, res) {
           }
         });
       });
-  } else cevapOlustur(res, 404, { hata: "Bu API'yi kullanmaya yetkiniz yok!" });
 };
 const mekanSil = function (req, res) {
-  if (req.auth.rol === "admin") {
     var mekanid = req.params.mekanid;
     if (mekanid) {
       Mekan.findByIdAndRemove(mekanid).exec(function (hata, gelenMekan) {
@@ -197,7 +192,6 @@ const mekanSil = function (req, res) {
         mesaj: "mekanid bulunamadı",
       });
     }
-  } else cevapOlustur(res, 404, { hata: "Bu API'yi kullanmaya yetkiniz yok!" });
 };
 module.exports = {
   mekanlariListele,
