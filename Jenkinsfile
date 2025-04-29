@@ -15,9 +15,14 @@ pipeline {
         echo 'Bağımlılıklar yüklendi!'
       }
     }
-    stage('Start Mekanbul') {
+     stage('Start server in background') {
             steps {
-                sh 'npm start'
+                sh '''
+                    npm start &              # Start server in background
+                    SERVER_PID=$!            # Capture process ID
+                    echo "Server PID: $SERVER_PID"
+                    sleep 10                 # Wait for server to be ready (adjust as needed)
+                '''
             }
         }
     stage('Test Mekanbul') {
@@ -27,7 +32,13 @@ pipeline {
        echo 'Testler başarılı.'
       }
     }
-
+  stage('Stop server') {
+            steps {
+                sh '''
+                    pkill -f "node .*start" || true
+                '''
+            }
+        }
     stage('Deploy Mekanbul') {
       steps {
         echo 'Dağıtılıyor...'
