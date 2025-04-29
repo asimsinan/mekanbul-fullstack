@@ -13,9 +13,6 @@ pipeline {
         echo 'Bağımlılıklar yükleniyor...'
         sh 'npm install'
         echo 'Bağımlılıklar yüklendi!'
-        echo 'Audit yapılıyor..'
-        sh 'npm audit fix --force'
-        echo 'Audit yapıldı!'
       }
     }
     stage('Test Mekanbul') {
