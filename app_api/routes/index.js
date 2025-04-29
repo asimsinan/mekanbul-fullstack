@@ -18,27 +18,27 @@ router.post("/girisyap", ctrlKullanici.girisYap);
 router
   .route("/mekanlar")
   .get(ctrlMekanlar.mekanlariListele)
-  .post(auth, ctrlMekanlar.mekanEkle);
+  .post(ctrlMekanlar.mekanEkle);
 
-router.route("/admin").get(auth, ctrlMekanlar.tumMekanlariListele);
+router.route("/admin").get(ctrlMekanlar.tumMekanlariListele);
 
 router
   .route("/mekanlar/:mekanid")
   .get(ctrlMekanlar.mekanGetir)
-  .put(auth, ctrlMekanlar.mekanGuncelle)
-  .delete(auth, ctrlMekanlar.mekanSil);
+  .put(ctrlMekanlar.mekanGuncelle)
+  .delete(ctrlMekanlar.mekanSil);
 
-router.route("/mekanlar/:mekanid/yorumlar").post(auth, ctrlYorumlar.yorumEkle);
+router.route("/mekanlar/:mekanid/yorumlar").post(ctrlYorumlar.yorumEkle);
 
 router
   .route("/mekanlar/:mekanid/yorumlar/:yorumid")
   .get(ctrlYorumlar.yorumGetir)
-  .put(auth, ctrlYorumlar.yorumGuncelle)
-  .delete(auth, ctrlYorumlar.yorumSil);
+  .put(ctrlYorumlar.yorumGuncelle)
+  .delete(ctrlYorumlar.yorumSil);
 
-router.get("/profil", auth, ctrlKullanici.profilGoruntule);
+router.get("/profil", ctrlKullanici.profilGoruntule);
 
-router.put("/profilguncelle", auth, ctrlKullanici.profilGuncelle);
+router.put("/profilguncelle", ctrlKullanici.profilGuncelle);
 
 router.put("/sifreyenile", ctrlKullanici.sifreYenile);
 
