@@ -46,14 +46,14 @@ const kullaniciGetir = (req, res, callback) => {
   }
 };
 
-var yorumOlustur = function (req, res, gelenMekan, kullaniciAdi) {
+var yorumOlustur = function (req, res, gelenMekan) {
   if (!gelenMekan) {
     cevapOlustur(res, 404, {
       mesaj: "mekanid bulunamadı",
     });
   } else {
     gelenMekan.yorumlar.push({
-      yorumYapan: kullaniciAdi,
+      yorumYapan: req.body.yorumMetni,
       puan: req.body.puan,
       yorumMetni: req.body.yorumMetni,
       tarih: Date.now(),
@@ -71,7 +71,6 @@ var yorumOlustur = function (req, res, gelenMekan, kullaniciAdi) {
   }
 };
 const yorumEkle = (req, res) => {
-  kullaniciGetir(req, res, (req, res, kullaniciAdi) => {
     const mekanid = req.params.mekanid;
     if (mekanid) {
       Mekan.findById(mekanid)
@@ -80,13 +79,13 @@ const yorumEkle = (req, res) => {
           if (hata) {
             res.status(400).json(hata);
           } else {
-            yorumOlustur(req, res, mekan, kullaniciAdi);
+            yorumOlustur(req, res, mekan);
           }
         });
     } else {
       res.status(404).json({ hata: "Mekan bulunamadı" });
     }
-  });
+  );
 };
 
 const yorumGetir = function (req, res) {
