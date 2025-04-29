@@ -8,7 +8,6 @@ describe("POST /api/mekanlar", function () {
   it("Yeni mekan ekle:", async function () {
     const response = await request
       .post("/api/mekanlar")
-      .set("Authorization", "bearer " + kullanici.token)
       .send({
         ad: "Starbucks",
         adres: "Centrum Garden",
@@ -48,7 +47,6 @@ describe("PUT /api/mekanlar/:mekanid", function () {
   it("Mekan Güncelle:", async function () {
     const response = await request
       .put(`/api/mekanlar/${process.env.mekanid}`)
-      .set("Authorization", "bearer " + kullanici.token)
       .send({
         ad: "Starbucks SDÜ",
         adres: "SDÜ Doğu Kampüsü",
@@ -73,7 +71,6 @@ describe("POST /api/mekanlar/:mekanid/yorumlar", function () {
   it("Yorum ekle:", async function () {
     const response = await request
       .post(`/api/mekanlar/${process.env.mekanid}/yorumlar`)
-      .set("Authorization", "bearer " + kullanici.token)
       .send({
         yorumYapan: "ASY",
         puan: 5,
@@ -99,7 +96,6 @@ describe("PUT /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
       .put(
         `/api/mekanlar/${process.env.mekanid}/yorumlar/${process.env.yorumid}`
       )
-      .set("Authorization", "bearer " + kullanici.token)
       .send({
         yorumYapan: "Sinan",
         puan: 4,
@@ -112,7 +108,6 @@ describe("PUT /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
 describe("DELETE /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
   it("Yorum sil:", async function () {
     const response = await request
-      .set("Authorization", "bearer " + kullanici.token)
       .delete(
         `/api/mekanlar/${process.env.mekanid}/yorumlar/${process.env.yorumid}`
       );
@@ -123,7 +118,6 @@ describe("DELETE /api/mekanlar/:mekanid/yorumlar/:yorumid", function () {
 describe("DELETE /api/mekanlar/:mekanid", function () {
   it("Mekan sil:", async function () {
     const response = await request
-      .set("Authorization", "bearer " + kullanici.token)
       .delete(`/api/mekanlar/${process.env.mekanid}`);
     expect(response.status).to.eql(200);
   });
